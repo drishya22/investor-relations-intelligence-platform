@@ -15,3 +15,6 @@ class VectorStore:
             query_embeddings=[query_embedding],
             n_results=n_results
         )
+
+    def delete_collection(self):
+        self.client.delete_collection("investor_documents")
