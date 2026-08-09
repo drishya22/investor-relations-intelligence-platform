@@ -14,9 +14,13 @@ __pycache__/
 # Logs
 logs/
 
-# SQLite
+# Local databases
 *.db
+*.sqlite
 *.sqlite3
+
+# Generated / downloaded data
+data/
 
 # IDE
 .vscode/

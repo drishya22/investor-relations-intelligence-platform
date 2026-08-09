@@ -1,7 +1,7 @@
 from app.pdf.pdf_extractor import PDFExtractor
 
 
-pdf = "data/reports/page_industries/Earning_Call_Notification_Q2_2025.pdf"
+pdf = "data/reports/page_industries/Investor_Meet_on_18_and_19_June_2026.pdf"
 
 extractor = PDFExtractor()
 

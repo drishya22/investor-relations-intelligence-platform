@@ -1,7 +1,7 @@
 from app.services.pdf_downloader import PDFDownloader
 
 
-pdf_url = "https://pageind.com/cdn/shop/files/Earning_Call_Notification_Q2_2025.pdf?v=16310887371741971107"
+pdf_url = "https://pageind.com/cdn/shop/files/Investor_Meet_on_18_and_19_June_2026.pdf?v=3125502281450764386"
 
 downloader = PDFDownloader()
 

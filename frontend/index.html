@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IR Intelligence Platform</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+
+        <div class="brand">
+            <div class="brand-icon">IR</div>
+
+            <div>
+                <h2>IR Intelligence</h2>
+                <span>Investor Relations Research Platform</span>
+            </div>
+        </div>
+
+        <div class="nav-status">
+            <span class="status-dot"></span>
+            AI Powered
+        </div>
+
+    </nav>
+
+
+    <!-- Main -->
+    <main class="container">
+
+        <!-- Hero -->
+        <section class="hero">
+
+            <div class="hero-badge">
+                INVESTOR RESEARCH
+            </div>
+
+            <h1>
+                Understand Investor
+                <span>Documents Faster.</span>
+            </h1>
+
+            <p>
+                Search financial and investor-relations documents using
+                semantic AI and generate analyst-ready insights.
+            </p>
+
+        </section>
+
+
+        <!-- Search Card -->
+        <section class="card">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Semantic Document Search</h2>
+
+                    <p>
+                        Search documents using natural language.
+                    </p>
+                </div>
+
+                <div class="feature-badge">
+                    AI Search
+                </div>
+
+            </div>
+
+
+            <div class="search-container">
+
+                <input
+                    id="searchInput"
+                    type="text"
+                    placeholder="e.g. What was discussed during the earnings call?"
+                >
+
+                <button id="searchButton" onclick="searchDocuments()">
+                    Search
+                </button>
+
+            </div>
+
+
+            <div class="example-queries">
+
+                <span>Try:</span>
+
+                <button
+                    onclick="setSearchQuery('quarterly earnings conference call')">
+                    Earnings Call
+                </button>
+
+                <button
+                    onclick="setSearchQuery('management discussion')">
+                    Management Discussion
+                </button>
+
+                <button
+                    onclick="setSearchQuery('investor meeting')">
+                    Investor Meeting
+                </button>
+
+            </div>
+
+
+            <div id="searchStatus" class="status-message"></div>
+
+            <div id="searchResults"></div>
+
+        </section>
+
+
+        <!-- AI Summary Card -->
+        <section class="card">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>AI Document Summary</h2>
+
+                    <p>
+                        Generate an analyst-friendly summary using Gemini.
+                    </p>
+                </div>
+
+                <div class="feature-badge">
+                    Gemini AI
+                </div>
+
+            </div>
+
+
+            <textarea
+                id="summaryInput"
+                placeholder="Paste investor-relations document text here..."
+            ></textarea>
+
+
+            <div class="summary-actions">
+
+                <button
+                    id="summaryButton"
+                    onclick="generateSummary()">
+                    Generate AI Summary
+                </button>
+
+                <button
+                    class="secondary-button"
+                    onclick="clearSummary()">
+                    Clear
+                </button>
+
+            </div>
+
+
+            <div id="summaryStatus" class="status-message"></div>
+
+            <div id="summaryResult" class="summary-result"></div>
+
+        </section>
+
+
+        <!-- Architecture -->
+        <section class="architecture card">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Platform Pipeline</h2>
+
+                    <p>
+                        From investor document to actionable intelligence.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="pipeline">
+
+                <div class="pipeline-item">
+                    <strong>PDF</strong>
+                    <span>Documents</span>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="pipeline-item">
+                    <strong>Extract</strong>
+                    <span>PyMuPDF</span>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="pipeline-item">
+                    <strong>Embed</strong>
+                    <span>Sentence Transformers</span>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="pipeline-item">
+                    <strong>Search</strong>
+                    <span>ChromaDB</span>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="pipeline-item">
+                    <strong>Analyze</strong>
+                    <span>Gemini AI</span>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            Investor Relations Intelligence Platform
+        </p>
+
+        <span>
+            FastAPI · ChromaDB · Sentence Transformers · Gemini
+        </span>
+
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script>
+
+    <script src="app.js"></script>
+
+
+
+</body>
+
+</html>

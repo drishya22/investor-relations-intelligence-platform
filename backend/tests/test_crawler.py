@@ -4,7 +4,7 @@ from app.crawler.parser import (
     extract_pdf_links,
 )
 
-URL = "https://pageind.com/pages/investors-relations"
+URL =  "https://pageind.com/pages/investors-relations"
 
 
 def main():

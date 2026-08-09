@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from app.ai.embedding_service import EmbeddingService
 from app.ai.semantic_search import SemanticSearch
@@ -17,6 +18,16 @@ from app.schemas.summary import (
 
 app = FastAPI(
     title="Investor Relations Intelligence Platform"
+)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://127.0.0.1:5500",
+        "http://localhost:5500",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 
