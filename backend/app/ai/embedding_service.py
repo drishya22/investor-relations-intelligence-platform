@@ -8,7 +8,8 @@ class EmbeddingService:
             from sentence_transformers import SentenceTransformer
 
             self.model = SentenceTransformer(
-                "sentence-transformers/all-MiniLM-L6-V2"
+                "sentence-transformers/all-MiniLM-L6-v2",
+                backend="onnx"
             )
 
         return self.model
