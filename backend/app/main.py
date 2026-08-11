@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-
+from app.ai.embedding_service import EmbeddingService
 from app.ai.semantic_search import SemanticSearch
 from app.ai.summary_service import SummaryService
 
@@ -31,7 +31,12 @@ app.add_middleware(
 # Services
 # --------------------------------------------------
 
-semantic_search = SemanticSearch()
+embedding_service = EmbeddingService()
+
+semantic_search = SemanticSearch(
+    embedding_service=embedding_service
+)
+
 summary_service = SummaryService()
 
 
