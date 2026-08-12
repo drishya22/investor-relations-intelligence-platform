@@ -9,7 +9,10 @@ class EmbeddingService:
 
             self.model = SentenceTransformer(
                 "sentence-transformers/all-MiniLM-L6-v2",
-                backend="onnx"
+                backend="onnx",
+                model_kwargs={
+                    "file_name": "onnx/model_quint8_avx2.onnx"
+                }
             )
 
         return self.model
