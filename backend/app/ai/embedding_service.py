@@ -1,35 +1,44 @@
+from google import genai
+from google.genai import types
+
+from app.config import GEMINI_API_KEY
+
+
 class EmbeddingService:
 
     def __init__(self):
-        self.model = None
-
-    def _get_model(self):
-        if self.model is None:
-            from sentence_transformers import SentenceTransformer
-
-            self.model = SentenceTransformer(
-                "sentence-transformers/all-MiniLM-L6-v2",
-                backend="onnx"
+        if not GEMINI_API_KEY:
+            raise ValueError(
+                "GEMINI_API_KEY is not configured."
             )
 
-        return self.model
+        self.client = genai.Client(
+            api_key=GEMINI_API_KEY
+        )
 
     def generate_embedding(self, text: str):
-        model = self._get_model()
-
-        embedding = model.encode(
-            text,
-            convert_to_numpy=True
+        result = self.client.models.embed_content(
+            model="gemini-embedding-001",
+            contents=text,
+            config=types.EmbedContentConfig(
+                task_type="RETRIEVAL_QUERY",
+                output_dimensionality=768
+            )
         )
 
-        return embedding.tolist()
+        return result.embeddings[0].values
 
     def generate_embeddings(self, texts: list[str]):
-        model = self._get_model()
-
-        embeddings = model.encode(
-            texts,
-            convert_to_numpy=True
+        result = self.client.models.embed_content(
+            model="gemini-embedding-001",
+            contents=texts,
+            config=types.EmbedContentConfig(
+                task_type="RETRIEVAL_DOCUMENT",
+                output_dimensionality=768
+            )
         )
 
-        return embeddings.tolist()
+        return [
+            embedding.values
+            for embedding in result.embeddings
+        ]
